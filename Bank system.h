@@ -33,7 +33,7 @@ public:
         std::cout << "ID: " << account_number << "\nName: " << holder_name << "\nBalance: " << balance << "\n";
     }
 
-    int id_getter() const { return account_number; }
+    long long id_getter() const { return account_number; }
 
     double get_balance() const { return balance; }
 
