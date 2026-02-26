@@ -7,11 +7,13 @@
 
 class bankaccount {
 protected:
+    
     int account_number;
     std::string holder_name;
     double balance;
 
 public:
+   
     bankaccount(int number, std::string name, double Balance) {
         account_number = number;
         holder_name = name;
@@ -21,12 +23,13 @@ public:
     virtual void save(std::ofstream& file) const = 0;
 
     void deposit(double amount) {
+        
         if (amount <= 0) {
             std::cout << "Error: Invalid amount.\n";
             return;
         }
         balance += amount;
-        std::cout << "Success! Deposited: " << amount << " | New Balance: " << balance << "\n";
+        std::cout << "Successful operation ! Deposited: " << amount << " | New Balance: " << balance << "\n";
     }
 
     virtual void show_info() const {
@@ -48,6 +51,7 @@ public:
     }
 
     virtual ~bankaccount() {}
+
 };
 
 class saving_account : public bankaccount {
@@ -55,9 +59,9 @@ private:
     double interest_rate;
 
 public:
+    
     saving_account(int Number, std::string Name, double Balance, double interest)
-        : bankaccount(Number, Name, Balance), interest_rate(interest) {
-    }
+        : bankaccount(Number, Name, Balance), interest_rate(interest) {}
 
     void save(std::ofstream& file) const override {
         file << "1 " << account_number << " " << holder_name << " " << balance << " " << interest_rate << "\n";
@@ -79,7 +83,7 @@ public:
         }
 
         balance -= amount;
-        std::cout << "Success! Withdrawn: " << amount << " | Remaining: " << balance << "\n";
+        std::cout << "Successful operation , Withdrawn amount: " << amount << " | Remaining: " << balance << "\n";
         return true;
     }
 
@@ -91,9 +95,11 @@ public:
 
 class checking_account : public bankaccount {
 private:
+    
     double transaction_fee;
 
 public:
+    
     checking_account(int Number, std::string Name, double Balance, double Fee)
         : bankaccount(Number, Name, Balance), transaction_fee(Fee) {
     }
