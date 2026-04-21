@@ -1,4 +1,4 @@
-\# 🏦 C++ Banking System
+\# 🏦 C++ Banking System as an application for an oop course
 
 
 
